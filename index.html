@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { theme: { extend: { colors: { ink: '#24201d', cream: '#f7f3ec', caramel: '#c8784a', moss: '#526052' }, fontFamily: { display: ['Georgia', 'serif'], sans: ['Trebuchet MS', 'sans-serif'] } } } };
+    </script>
+    <style>
+        body { background: #f7f3ec; color: #24201d; font-family: 'Trebuchet MS', sans-serif; }
+        .grain { background-image: radial-gradient(#24201d1a 0.7px, transparent 0.7px); background-size: 9px 9px; }
+        .hero-photo { background-image: linear-gradient(90deg, #24201dcc 0%, #24201d66 48%, #24201d1a 100%), url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1800&q=85'); background-position: center; background-size: cover; }
+        .menu-photo { background-image: url('https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=900&q=80'); background-position: center; background-size: cover; }
+        @keyframes rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+        .rise { animation: rise .7s ease-out both; }
+    </style>
+    <title>Juniper &amp; Co. Coffee</title>
+</head>
+
+<body>
+    <header class="absolute inset-x-0 top-0 z-20 text-white">
+        <nav class="mx-auto flex max-w-6xl items-center justify-between px-6 py-6" aria-label="Main navigation">
+            <a href="#home" class="font-display text-2xl font-bold tracking-tight">Juniper <span class="text-caramel">&amp;</span> Co.</a>
+            <button id="menu-button" class="rounded border border-white/40 p-2 md:hidden" aria-label="Open menu" aria-expanded="false"><svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 6h16M4 12h16M4 18h16" /></svg></button>
+            <div id="mobile-menu" class="absolute left-6 right-6 top-20 hidden flex-col gap-5 bg-ink p-6 md:static md:flex md:flex-row md:items-center md:gap-8 md:bg-transparent md:p-0">
+                <a class="text-sm hover:text-caramel" href="#menu">Our menu</a><a class="text-sm hover:text-caramel" href="#story">Our story</a><a class="text-sm hover:text-caramel" href="#visit">Visit us</a>
+                <button class="flex items-center gap-2 rounded-full bg-caramel px-5 py-2.5 text-sm font-bold text-white transition hover:bg-white hover:text-ink" id="cart-button">Order now <span id="cart-count" class="grid h-5 w-5 place-items-center rounded-full bg-ink text-xs">0</span></button>
+            </div>
+        </nav>
+    </header>
+
+    <main id="home">
+        <section class="hero-photo flex min-h-[680px] items-center text-white"><div class="mx-auto w-full max-w-6xl px-6 pb-16 pt-36"><div class="max-w-xl rise"><p class="mb-5 text-xs font-bold uppercase tracking-[0.28em] text-orange-200">Small batch coffee · Since 2014</p><h1 class="font-display text-6xl leading-[.95] md:text-8xl">Good coffee,<br><em class="font-normal text-orange-200">made slowly.</em></h1><p class="mt-8 max-w-md text-lg leading-7 text-white/80">A neighborhood coffee shop for thoughtful mornings, warm conversations, and another cup before you go.</p><a href="#menu" class="mt-9 inline-flex items-center gap-3 rounded-full bg-caramel px-6 py-3.5 text-sm font-bold transition hover:bg-white hover:text-ink">Explore the menu <span aria-hidden="true">&#8594;</span></a></div></div><div class="absolute bottom-8 right-6 hidden text-right text-xs uppercase tracking-[0.2em] text-white/70 md:block">Open daily<br><strong class="text-white">7:00 am — 5:00 pm</strong></div></section>
+
+        <section id="menu" class="grain px-6 py-24"><div class="mx-auto max-w-6xl"><div class="mb-12 flex flex-col justify-between gap-5 md:flex-row md:items-end"><div><p class="mb-3 text-xs font-bold uppercase tracking-[0.25em] text-caramel">What we are pouring</p><h2 class="font-display text-5xl">A little menu<br><em class="font-normal">of favorites.</em></h2></div><p class="max-w-xs text-sm leading-6 text-ink/60">Seasonal ingredients, familiar comfort, and a few things to make your day taste better.</p></div><div class="grid gap-6 md:grid-cols-3">
+            <article class="bg-white p-5 shadow-sm transition hover:                        `-translate-y-1"><div class="menu-photo mb-5 aspect-[4/3]"></div><div class="flex items-start justify-between gap-4"><div><h3 class="font-display text-2xl">Honey oat latte</h3><p class="mt-2 text-sm text-ink/60">Espresso, oat milk, wildflower honey</p></div><span class="font-bold text-caramel">$5.50</span></div><button class="add-to-cart mt-6 w-full border border-ink/20 py-3 text-xs font-bold uppercase tracking-widest transition hover:bg-ink hover:text-white">Add to order</button></article>
+            <article class="bg-white p-5 shadow-sm transition hover:-translate-y-1"><div class="mb-5 flex aspect-[4/3] items-center justify-center bg-[#d9dfd2]"><span class="font-display text-7xl text-moss/80">&#9749;</span></div><div class="flex items-start justify-between gap-4"><div><h3 class="font-display text-2xl">Juniper cold brew</h3><p class="mt-2 text-sm text-ink/60">20-hour steep, orange peel, ice</p></div><span class="font-bold text-caramel">$4.75</span></div><button class="add-to-cart mt-6 w-full border border-ink/20 py-3 text-xs font-bold uppercase tracking-widest transition hover:bg-ink hover:text-white">Add to order</button></article>
+            <article class="bg-white p-5 shadow-sm transition hover:-translate-y-1"><div class="mb-5 flex aspect-[4/3] items-center justify-center bg-[#f0d8c3]"><span class="font-display text-7xl text-caramel/80">&#10047;</span></div><div class="flex items-start justify-between gap-4"><div><h3 class="font-display text-2xl">Morning bun</h3><p class="mt-2 text-sm text-ink/60">Cinnamon, brown sugar, flaky pastry</p></div><span class="font-bold text-caramel">$4.00</span></div><button class="add-to-cart mt-6 w-full border border-ink/20 py-3 text-xs font-bold uppercase tracking-widest transition hover:bg-ink hover:text-white">Add to order</button></article>
+        </div>
+    </div>
+</section>
+
+        <section id="story" class="grid md:grid-cols-2"><div class="min-h-[420px] bg-[url('https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=1200&q=80')] bg-cover bg-center"></div><div class="flex items-center bg-moss px-8 py-20 text-white md:px-16"><div class="max-w-md"><p class="mb-4 text-xs font-bold uppercase tracking-[0.25em] text-orange-200">The long version</p><h2 class="font-display text-5xl leading-none">Rooted in<br><em class="font-normal text-orange-200">the neighborhood.</em></h2><p class="mt-7 leading-7 text-white/75">We started with one borrowed espresso machine and a belief that coffee tastes better when you know the people who make it. Ten years later, that still guides every cup.</p><a href="#visit" class="mt-8 inline-block border-b border-orange-200 pb-1 text-sm font-bold text-orange-200">Come say hello <span aria-hidden="true">&#8594;</span></a></div></div></section>
+        <section id="visit" class="px-6 py-20"><div class="mx-auto flex max-w-6xl flex-col justify-between gap-10 border-t border-ink/20 pt-10 md:flex-row"><div><p class="mb-3 text-xs font-bold uppercase tracking-[0.25em] text-caramel">Find your table</p><h2 class="font-display text-5xl">Come by soon.</h2></div><div class="grid gap-8 text-sm md:grid-cols-2"><div><p class="mb-2 font-bold">Address</p><p class="text-ink/60">18 Juniper Street<br>Portland, OR 97205</p></div><div><p class="mb-2 font-bold">Hours</p><p class="text-ink/60">Monday — Friday, 7–5<br>Saturday — Sunday, 8–4</p></div></div></div></section>
+    </main>
+    <footer class="flex flex-col justify-between gap-3 bg-ink px-6 py-8 text-sm text-white/60 md:flex-row"><p class="font-display text-xl text-white">Juniper <span class="text-caramel">&amp;</span> Co.</p><p>Made with care, poured with intention.</p><p>&copy; 2024 Juniper &amp; Co.</p></footer>
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>
